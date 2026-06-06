@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@keyframes spin-turbine {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-turbine-spin {
+  animation: spin-turbine var(--spin-speed, 3s) linear infinite;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(241, 245, 249, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(203, 213, 225, 0.8);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.8);
+}
+
+.flow-line {
+  stroke-dasharray: 6, 8;
+  animation: flow-path 25s linear infinite;
+}
+
+@keyframes flow-path {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 0.4; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.pulse-node-ring {
+  animation: pulse-ring 2.5s ease-in-out infinite;
+  transform-origin: center;
+}
+
+body {
+  background-color: #FFFFFF;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(220, 252, 231, 0.55) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+    linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+  background-attachment: fixed;
+  color: #0F172A;
+}
